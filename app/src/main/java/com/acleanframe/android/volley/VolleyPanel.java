@@ -1,9 +1,18 @@
 package com.acleanframe.android.volley;
 
+import android.app.Application;
+
+import com.framework.android.plugin.PluginBasicPanel;
+import com.framework.android.utils.DLog;
+
 /**
  * com.acleanframe.android.volley
  * Created by daemon on 2016/5/25 0025.
- * 说明：
+ * 说明：Volley框架的基本使用集合成一个面板
  */
-public class VolleyPanel {
+public class VolleyPanel implements PluginBasicPanel {
+    @Override
+    public void initializer(Application application) {
+        DLog.i("VolleyPanel","initializer succeed");
+    }
 }

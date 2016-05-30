@@ -22,7 +22,7 @@ import android.telephony.TelephonyManager;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.framework.android.cose.Constants;
+import com.framework.android.core.Constants;
 
 import java.io.File;
 import java.lang.reflect.Field;

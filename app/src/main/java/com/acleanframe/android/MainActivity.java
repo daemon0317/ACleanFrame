@@ -3,13 +3,15 @@ package com.acleanframe.android;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.framework.android.AClean;
+import com.framework.android.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if (AClean.getPlugin("volley") !=null ){
+            Snackbar.make(fab,"获取Volley插件成功",Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }else{
+            Snackbar.make(fab,"获取Volley插件失败",Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//    public native void textJni();
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

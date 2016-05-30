@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 
-import com.framework.android.cose.Constants;
+import com.framework.android.core.Constants;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

@@ -20,8 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.framework.android.D;
-import com.framework.android.util.DLog;
+import com.framework.android.AClean;
+import com.framework.android.utils.DLog;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -41,6 +41,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
     private static ViewInjectorImpl instance;
 
     private ViewInjectorImpl() {
+
     }
 
     public static void registerInstance() {
@@ -51,7 +52,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
                 }
             }
         }
-        D.Ext.setViewInjector(instance);
+        AClean.initViewInjector(instance);
     }
 
     @Override

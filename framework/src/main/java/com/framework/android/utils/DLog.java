@@ -7,14 +7,7 @@ package com.framework.android.utils;
 
 import android.util.Log;
 
-import com.framework.android.cose.Constants;
-import com.framework.android.cose.thread.Runtask;
-import com.framework.android.cose.thread.ThreadPool;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.framework.android.core.Constants;
 
 /**
  * [A brief description]
@@ -74,7 +67,7 @@ public class DLog {
 			Log.println(priority, tag, log);
 		}
 		if(logFile){
-			writeLog(tag, log, null, "VERBOSE");
+//			writeLog(tag, log, null, "VERBOSE");
 		}
 	}
 	/**
@@ -84,60 +77,60 @@ public class DLog {
 	 * @param tr
 	 * @param priority
 	 */
-	private static void writeLog(String tag, String msg, Throwable tr, String priority){
-
-		ThreadPool.go(new Runtask<Void, Void>(tag, msg, tr, priority) {
-			@Override
-			public Void runInBackground() {
-				synchronized (DLog.class) {
-					String tag = (String) objs[0];
-					String msg = (String) objs[1];
-					Throwable tr = (Throwable) objs[2];
-					String priority = (String) objs[3];
-
-					if (!logFilePath.endsWith(File.separator)) {
-						logFilePath = logFilePath + File.separator;
-					}
-
-					String filename = logFilePath
-							+ DDateTime.formatDateTime(System.currentTimeMillis())
-							+ ".log";
-					File logFile = new File(filename);
-
-					OutputStream os = null;
-					try {
-						if (!logFile.exists()) {
-							logFile.createNewFile();
-						}
-
-						os = new FileOutputStream(logFile, true);
-
-						String formatMsg = DDateTime.formatDateTime(System.currentTimeMillis()) + "\r\n[" + priority + "][" + tag + "]: \r\n"
-								+ "User Message: " + msg + "\r\n"
-								+ (null == tr ? "" :
-
-								"Throwable Message: " + tr.getMessage() + "\r\n"
-										+ "Throwable StackTrace: " + (tr.getStackTrace())
-						)
-								+ "\r\n";
-						os.write(formatMsg.getBytes("utf-8"));
-						os.flush();
-					} catch (Exception ex) {
-						ex.printStackTrace();
-					} finally {
-						if (null != os) {
-							try {
-								os.close();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
-					}
-
-
-				}
-				return null;
-			}
-		});
-	}
+//	private static void writeLog(String tag, String msg, Throwable tr, String priority){
+//
+//		ThreadPool.go(new Runtask<Void, Void>(tag, msg, tr, priority) {
+//			@Override
+//			public Void runInBackground() {
+//				synchronized (DLog.class) {
+//					String tag = (String) objs[0];
+//					String msg = (String) objs[1];
+//					Throwable tr = (Throwable) objs[2];
+//					String priority = (String) objs[3];
+//
+//					if (!logFilePath.endsWith(File.separator)) {
+//						logFilePath = logFilePath + File.separator;
+//					}
+//
+//					String filename = logFilePath
+//							+ DDateTime.formatDateTime(System.currentTimeMillis())
+//							+ ".log";
+//					File logFile = new File(filename);
+//
+//					OutputStream os = null;
+//					try {
+//						if (!logFile.exists()) {
+//							logFile.createNewFile();
+//						}
+//
+//						os = new FileOutputStream(logFile, true);
+//
+//						String formatMsg = DDateTime.formatDateTime(System.currentTimeMillis()) + "\r\n[" + priority + "][" + tag + "]: \r\n"
+//								+ "User Message: " + msg + "\r\n"
+//								+ (null == tr ? "" :
+//
+//								"Throwable Message: " + tr.getMessage() + "\r\n"
+//										+ "Throwable StackTrace: " + (tr.getStackTrace())
+//						)
+//								+ "\r\n";
+//						os.write(formatMsg.getBytes("utf-8"));
+//						os.flush();
+//					} catch (Exception ex) {
+//						ex.printStackTrace();
+//					} finally {
+//						if (null != os) {
+//							try {
+//								os.close();
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//							}
+//						}
+//					}
+//
+//
+//				}
+//				return null;
+//			}
+//		});
+//	}
 }

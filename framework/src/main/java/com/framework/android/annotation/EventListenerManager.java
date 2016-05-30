@@ -18,7 +18,7 @@ package com.framework.android.annotation;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.framework.android.util.DLog;
+import com.framework.android.utils.DLog;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationHandler;
