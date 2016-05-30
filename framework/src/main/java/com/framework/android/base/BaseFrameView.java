@@ -15,6 +15,25 @@ public class BaseFrameView extends BaseView{
 
     @Override
     void showMessage(String msg) {
+    }
+
+    public void hideMessage() {
+
+    }
+
+    public void showError(String err, View.OnClickListener listener) {
+
+    }
+
+    public void hideError() {
+
+    }
+
+    public void showLoading(String str) {
+
+    }
+
+    public void hideLoading() {
 
     }
 }

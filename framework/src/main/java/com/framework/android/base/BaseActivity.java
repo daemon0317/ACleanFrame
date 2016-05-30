@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.framework.android.AClean;
 import com.framework.android.core.ACleanContext;
@@ -38,5 +39,20 @@ public class BaseActivity extends AppCompatActivity {
     }
     protected void showMessage(String msg){
         frameView.showMessage(msg);
+    }
+    protected void hideMessage(){
+        frameView.hideMessage();
+    }
+    protected void showError(String err,View.OnClickListener listener){
+        frameView.showError(err, listener);
+    }
+    protected void hideError(){
+        frameView.hideError();
+    }
+    protected void showLoading(String str){
+        frameView.showLoading(str);
+    }
+    protected void hideLoading(){
+        frameView.hideLoading();
     }
 }

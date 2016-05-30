@@ -10,4 +10,6 @@ import android.view.View;
 public abstract class BaseView  {
     abstract View get();
     abstract void showMessage(String msg);
+
+
 }
