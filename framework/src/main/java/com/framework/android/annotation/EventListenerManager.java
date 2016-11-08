@@ -18,7 +18,7 @@ package com.framework.android.annotation;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.framework.android.utils.DLog;
+import com.framework.android.utils.Logger;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationHandler;
@@ -115,7 +115,7 @@ import java.util.HashSet;
                 setEventListenerMethod.invoke(view, listener);
             }
         } catch (Throwable ex) {
-            DLog.e(ex.getMessage(), ex);
+            Logger.e(ex.getMessage(), ex);
         }
     }
 
@@ -160,7 +160,7 @@ import java.util.HashSet;
                     if (AVOID_QUICK_EVENT_SET.contains(eventMethod)) {
                         long timeSpan = System.currentTimeMillis() - lastClickTime;
                         if (timeSpan < QUICK_EVENT_TIME_SPAN) {
-                            DLog.d("onClick cancelled: " + timeSpan);
+                            Logger.d(EventListenerManager.class.getSimpleName(),"onClick cancelled: " + timeSpan);
                             return null;
                         }
                         lastClickTime = System.currentTimeMillis();

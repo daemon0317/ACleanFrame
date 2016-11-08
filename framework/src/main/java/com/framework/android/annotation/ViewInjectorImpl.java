@@ -21,7 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.framework.android.AClean;
-import com.framework.android.utils.DLog;
+import com.framework.android.utils.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -74,7 +74,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
                 }
             }
         } catch (Throwable ex) {
-            DLog.e(ex.getMessage(), ex);
+            Logger.e(ex.getMessage(), ex);
         }
 
         injectObject(activity, handlerType, new ViewFinder(activity));
@@ -99,7 +99,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
                 }
             }
         } catch (Throwable ex) {
-            DLog.e(ex.getMessage(), ex);
+            Logger.e(ex.getMessage(), ex);
         }
 
         // inject res & event
@@ -157,7 +157,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
                                     + handlerType.getSimpleName());
                         }
                     } catch (Throwable ex) {
-                        DLog.e(ex.getMessage(), ex);
+                        Logger.e(ex.getMessage(), ex);
                     }
                 }
             }
@@ -193,7 +193,7 @@ public final class ViewInjectorImpl implements ViewInjectorPort {
                             }
                         }
                     } catch (Throwable ex) {
-                        DLog.e(ex.getMessage(), ex);
+                        Logger.e(ex.getMessage(), ex);
                     }
                 }
             }

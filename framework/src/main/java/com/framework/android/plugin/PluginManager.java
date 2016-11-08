@@ -3,7 +3,7 @@ package com.framework.android.plugin;
 import android.app.Application;
 
 import com.framework.android.exception.NotInitializeError;
-import com.framework.android.utils.DCheck;
+import com.framework.android.utils.CheckUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +37,7 @@ public class PluginManager {
     }
 
     public PluginBasicPanel getPlugin(String tag) {
-        if (plugsMap == null || DCheck.isEmpty(tag))
+        if (plugsMap == null || CheckUtil.isEmpty(tag))
             throw new NotInitializeError("");
         return  plugsMap.get(tag);
     }

@@ -3,7 +3,7 @@ package com.acleanframe.android.volley;
 import android.app.Application;
 
 import com.framework.android.plugin.PluginBasicPanel;
-import com.framework.android.utils.DLog;
+import com.framework.android.utils.Logger;
 
 /**
  * com.acleanframe.android.volley
@@ -13,6 +13,6 @@ import com.framework.android.utils.DLog;
 public class VolleyPanel implements PluginBasicPanel {
     @Override
     public void initializer(Application application) {
-        DLog.i("VolleyPanel","initializer succeed");
+        Logger.i("VolleyPanel","initializer succeed");
     }
 }
